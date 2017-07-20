@@ -7,8 +7,10 @@ Open your video files. They are segmented into individual frames using FFMPEG.
 Each set of frames is then passed to Hugin, which stitches them together, and generates a TIFF.
 Once each frame is stitched, FFMPEG is invoked again to reassemble a video.
 
+For the command line version, each one of your input files must be passed as an argument, which is pretty tedious.
+
 ## Known problems
-- Command line operation hasn't been implemented yet
+- Command line operation is currently the way to go, but it's unnecessarily slow
 - We just use the audio from the first video camera, we will allow **at least** to pick which one you want in the UI.
 - The focal length is hardcoded to 98, which *should* be all right with GoPros and most action cameras. This should be user-settable.
 - The video streams are not timelocked, so they drift in time relative to each other. You should trim your source videos to alleviate the issue, but I don't really have a fix.
